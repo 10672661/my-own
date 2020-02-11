@@ -3,32 +3,32 @@
 #include<math.h>
 int trans(char str[])
 {
-    if(strcmp("Áã",str)==0)return 0;
-    if(strcmp("Ò»",str)==0)return 1;
-    if(strcmp("¶þ",str)==0)return 2;
-    if(strcmp("Èý",str)==0)return 3;
-    if(strcmp("ËÄ",str)==0)return 4;
-    if(strcmp("Îå",str)==0)return 5;
-    if(strcmp("Áù",str)==0)return 6;
-    if(strcmp("Æß",str)==0)return 7;
-    if(strcmp("°Ë",str)==0)return 8;
-    if(strcmp("¾Å",str)==0)return 9;
-    if(strcmp("Ê®",str)==0)return 10;
+    if(strcmp("é›¶",str)==0)return 0;
+    if(strcmp("ä¸€",str)==0)return 1;
+    if(strcmp("äºŒ",str)==0)return 2;
+    if(strcmp("ä¸‰",str)==0)return 3;
+    if(strcmp("å››",str)==0)return 4;
+    if(strcmp("äº”",str)==0)return 5;
+    if(strcmp("å…­",str)==0)return 6;
+    if(strcmp("ä¸ƒ",str)==0)return 7;
+    if(strcmp("å…«",str)==0)return 8;
+    if(strcmp("ä¹",str)==0)return 9;
+    if(strcmp("å",str)==0)return 10;
 }
 int jud(char str[]){
     char more[10],less[10];
-    if(strlen(str)==2){return trans(str); //¶ÔÓ¦ÁãÒ»¶þµÈµ¥¸öºº×Ö±í´ïµÄÊý×Ö
+    if(strlen(str)==2){return trans(str); //å¯¹åº”é›¶ä¸€äºŒç­‰å•ä¸ªæ±‰å­—è¡¨è¾¾çš„æ•°å­—
     }
     else if(strlen(str)==4){
         more[0]=str[2];
         more[1]=str[3];
         more[2]='\0';      
-            if(trans(more)!=10) return 10+trans(more);//¶ÔÓ¦Ê®Ò»¡¢Ê®¶þµÈÒÔÊ®¿ªÍ·µÄÁ½¸öºº×Ö±í´ïµÄÊý×Ö
+            if(trans(more)!=10) return 10+trans(more);//å¯¹åº”åä¸€ã€åäºŒç­‰ä»¥åå¼€å¤´çš„ä¸¤ä¸ªæ±‰å­—è¡¨è¾¾çš„æ•°å­—
             else{
                 more[0]=str[0];
                 more[1]=str[1];
                 more[2]='\0';
-                return 10*trans(more);//¶ÔÓ¦¶þÊ®¡¢ÈýÊ®µÈÒÔÊ®½áÎ²µÄÊý×Ö
+                return 10*trans(more);//å¯¹åº”äºŒåã€ä¸‰åç­‰ä»¥åç»“å°¾çš„æ•°å­—
             }
     
     }
@@ -39,32 +39,36 @@ int jud(char str[]){
         less[0]=str[0];
         less[1]=str[1];
         less[2]='\0';
-        return trans(more)+trans(less)*10;//¶ÔÓ¦¡°¼¸Ê®¼¸¡±ÀàÐÍµÄÊý×Ö
+        return trans(more)+trans(less)*10;//å¯¹åº”â€œå‡ åå‡ â€ç±»åž‹çš„æ•°å­—
     }
 }
 int main(){
-	char *chinese[11]={"Áã","Ò»","¶þ","Èý","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®"};
+	char *chinese[11]={"é›¶","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹","å"};
 	char name[200],verb[200],numb[200],oper[200],name1[200],toint[200],name3[200];
 	char a[20],b[20],numb2[20],d[20],word[100],e[20],f[20],cold[100],name2[100];
 	char age[200],money[200];
-	int sum,sum2,sum3;//sum±íÊ¾µÚ¶þÌâÄêÁä£¬sum2±íÊ¾Áã»¨Ç®
+	int sum,sum2,sum3;//sumè¡¨ç¤ºç¬¬äºŒé¢˜å¹´é¾„ï¼Œsum2è¡¨ç¤ºé›¶èŠ±é’±
 	scanf("%s",toint);
 	scanf("%s %s %s",name,verb,numb);
 	sum=jud(numb);
 	while(scanf("%s",name1)!=EOF)
 	{	
-		if(strcmp(name1,toint)==0)//ÅÐ¶ÏÊÇ·ñÊÇµÚ¶þÌâ
+		if(strcmp(name1,toint)==0)//åˆ¤æ–­æ˜¯å¦æ˜¯ç¬¬äºŒé¢˜
 		{
 			scanf("%s %s %s",name3,verb,numb);
 			sum2=trans(numb);
 		}
-		if(strcmp(name1,name)==0){//¼Ó¼õ·¨ÔËËã+-+-+-+-+-+-+-+-+-+-+-++-+-+-
+		if(strcmp(name1,name)==0)//åŠ å‡æ³•è¿ç®—+-+-+-+-+-+-+-+-+-+-+-++-+-+-
+		{
 			scanf("%s",oper);
-			if(strcmp(oper,"Ôö¼Ó")==0){
+			if(strcmp(oper,"å¢žåŠ ")==0)
+			{
 				scanf("%s",numb);
 				sum3=jud(numb);
-				sum+=sum3;}
-			if(strcmp(oper,"¼õÉÙ")==0){
+				sum+=sum3;
+			}
+			if(strcmp(oper,"å‡å°‘")==0)
+			{
 				scanf("%s",numb);	
 				if(strlen(numb)==2)
 				{
@@ -73,48 +77,44 @@ int main(){
 				}//printf("%s",chinese[sum]);
 			}
 		}
-		else if(strcmp(name1,"¿´¿´")==0)
-		{
-			int lasttmp;
-			scanf("%s",name);
-			scanf("%s %s %s %s %s %s %s %s %s %s",a,name,b,numb2,d,name2,word,e,f,cold);
-			lasttmp=trans(numb2);
-			int len=strlen(word);
-			int len1=strlen(cold);
-			{
-				if(sum>=lasttmp)
-				{	if(sum>=0&&sum<=10){
-					printf("%s\n",chinese[sum]);for (int i=1;i<len-1; i+=2) {printf("%c%c",word[i],word[i+1]);}//È¥³ýË«ÒýºÅ
-					}
-					else {
-					if(sum%10==0){
-						printf("%sÊ®\n",chinese[sum/10]);for (int i=1;i<len-1; i+=2) {printf("%c%c",word[i],word[i+1]);}//È¥³ýË«ÒýºÅ
-					}
-					else if(sum<=19){
-						printf("Ê®%s\n",chinese[sum%10]);for (int i=1;i<len-1; i+=2) {printf("%c%c",word[i],word[i+1]);}//È¥³ýË«ÒýºÅ
-					}
-					else {
-						printf("%sÊ®%s\n",chinese[sum/10],chinese[sum%10]);for (int i=1;i<len-1; i+=2) {printf("%c%c",word[i],word[i+1]);}//È¥³ýË«ÒýºÅ
-					}
-				}}
-				else if(sum<lasttmp){
-						if(sum<0)
-						{
-							int under=abs(sum);	
-							printf("%s%s\n","¸º",chinese[under]);
-							for(int j=1;j<len1-1;j+=2) {printf("%c%c",cold[j],cold[j+1]);}}
-						}
+		else if(strcmp(name1,"çœ‹çœ‹")==0)
+		{int lasttmp;
+		scanf("%s",name);
+		if(sum>=0&&sum<=10){
+			printf("%s\n",chinese[sum]);}
+		else if(sum<0){int under=abs(sum);
+			printf("%s%s\n","è´Ÿ",chinese[under]);}
+		else {
+			if(sum%10==0){
+				printf("%så\n",chinese[sum/10]);}
+			else if(sum<=19){
+				printf("å%s\n",chinese[sum%10]);}
+			else {
+				printf("%så%s\n",chinese[sum/10],chinese[sum%10]);}
+		}
+		scanf("%s %s %s %s %s %s %s %s %s %s",a,name,b,numb2,d,name2,word,e,f,cold);
+		lasttmp=jud(numb2);
+		int len=strlen(word);
+		int len1=strlen(cold);
+		if(sum>lasttmp){
+			for (int i=1;i<len-1; i+=2) {printf("%c%c",word[i],word[i+1]);}//åŽ»é™¤åŒå¼•å·}
+			else if(sum<=lasttmp){
+				if(sum<0){
+					int under1=abs(sum);	
+					printf("%s%s\n","è´Ÿ",chinese[under1]);
+					for(int j=1;j<len1-1;j+=2) {printf("%c%c",cold[j],cold[j+1]);}
+				}
 				else{	
-					printf("%s\n",chinese[sum]);for(int j=1;j<len1-1;j+=2) {printf("%c%c",cold[j],cold[j+1]);}}//È¥³ýË«ÒýºÅ
-			}
-			}
-		else if(strcmp(name1,"Èç¹û")==0)//ÓÃÓÚÅÐ¶ÏÊÇ·ñ·ûºÏµÚ¶þÌâ
-		{	
+					for(int j=1;j<len1-1;j+=2) {printf("%c%c",cold[j],cold[j+1]);}}//åŽ»é™¤åŒå¼•å·
+			}		
+		}
+		else if(strcmp(name1,"å¦‚æžœ")==0)//ç”¨äºŽåˆ¤æ–­æ˜¯å¦ç¬¦åˆç¬¬äºŒé¢˜
+		{
 			scanf("%s %s %s %s %s %s %s %s %s",age,b,numb2,d,money,word,e,f,cold);
 			scanf("%s %s",a,age);
-			if(strcmp(a,"¿´¿´")==0)
-			{	
-				if(sum>8)//µÚ¶þÌâsum±íÊ¾ÄêÁä,sum2Áã»¨Ç®
+			if(strcmp(a,"çœ‹çœ‹")==0)
+			{
+				if(sum>8)//ç¬¬äºŒé¢˜sumè¡¨ç¤ºå¹´é¾„,sum2é›¶èŠ±é’±
 				{
 					int	x=sum2+1;
 					printf("%s",chinese[x]);
