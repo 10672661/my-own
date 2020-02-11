@@ -78,34 +78,53 @@ int main(){
 			}
 		}
 		else if(strcmp(name1,"看看")==0)
-		{int lasttmp;
-		scanf("%s",name);
-		if(sum>=0&&sum<=10){
-			printf("%s\n",chinese[sum]);}
-		else if(sum<0){int under=abs(sum);
-			printf("%s%s\n","负",chinese[under]);}
-		else {
-			if(sum%10==0){
-				printf("%s十\n",chinese[sum/10]);}
-			else if(sum<=19){
-				printf("十%s\n",chinese[sum%10]);}
-			else {
-				printf("%s十%s\n",chinese[sum/10],chinese[sum%10]);}
-		}
-		scanf("%s %s %s %s %s %s %s %s %s %s",a,name,b,numb2,d,name2,word,e,f,cold);
-		lasttmp=jud(numb2);
-		int len=strlen(word);
-		int len1=strlen(cold);
-		if(sum>lasttmp){
-			for (int i=1;i<len-1; i+=2) {printf("%c%c",word[i],word[i+1]);}//去除双引号}
-			else if(sum<=lasttmp){
-				if(sum<0){
+		{
+			int lasttmp;
+			scanf("%s",name);
+			if(sum>=0&&sum<=10)
+			{
+				printf("%s\n",chinese[sum]);
+			}
+			else if(sum<0)
+			{
+				int under=abs(sum);
+				printf("%s%s\n","负",chinese[under]);
+			}
+			else 
+			{
+				if(sum%10==0)
+				{
+					printf("%s十\n",chinese[sum/10]);
+				}
+				else if(sum<=19)
+				{
+					printf("十%s\n",chinese[sum%10]);
+				}
+				else 
+				{
+					printf("%s十%s\n",chinese[sum/10],chinese[sum%10]);
+				}
+			}
+			scanf("%s %s %s %s %s %s %s %s %s %s",a,name,b,numb2,d,name2,word,e,f,cold);
+			lasttmp=jud(numb2);
+			int len=strlen(word);
+			int len1=strlen(cold);
+			if(sum>lasttmp)
+			{
+				for (int i=1;i<len-1; i+=2) {printf("%c%c",word[i],word[i+1]);}//去除双引号
+			}
+			else if(sum<=lasttmp)
+			{
+				if(sum<0)
+				{
 					int under1=abs(sum);	
 					printf("%s%s\n","负",chinese[under1]);
 					for(int j=1;j<len1-1;j+=2) {printf("%c%c",cold[j],cold[j+1]);}
 				}
-				else{	
-					for(int j=1;j<len1-1;j+=2) {printf("%c%c",cold[j],cold[j+1]);}}//去除双引号
+				else
+				{	
+					for(int j=1;j<len1-1;j+=2) {printf("%c%c",cold[j],cold[j+1]);}
+				}//去除双引号
 			}		
 		}
 		else if(strcmp(name1,"如果")==0)//用于判断是否符合第二题
